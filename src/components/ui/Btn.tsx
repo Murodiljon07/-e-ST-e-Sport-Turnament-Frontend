@@ -10,7 +10,7 @@ type BtnProps = {
   className: string;
   onClick: () => void;
   btnType: "main" | "second";
-  children: ReactNode;
+  children: any;
 };
 
 function Btn({ children, className, onClick, btnType }: BtnProps) {
