@@ -1,35 +1,47 @@
 "use client";
 
-import React from "react";
-import { useRouter } from "next/navigation";
-import { LoginForm } from "@/components/forms/login/LoginForm";
-import { LoginBackground } from "@/components/pages/login/LoginBackground";
+import React, { useState } from "react";
+import { authServices } from "@/api/services/auth.service";
+import Input from "@/components/ui/InputEl";
 
-export default function LoginPage() {
-  const router = useRouter();
+function LoginPage() {
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
 
-  const handleSuccess = () => {
-    console.log("Login successful!");
-    // Redirect to dashboard or home page
-    router.push("/dashboard");
-  };
+  async function handelClick() {
+    console.log(email, password);
 
-  const handleForgotPassword = () => {
-    router.push("/forgot-password");
-  };
+    try {
+      const res = await authServices.loginUser({
+        email,
+        password,
+      });
 
-  const handleRegister = () => {
-    router.push("/auth/register");
-  };
+      console.log(res);
+    } catch (error: any) {
+      console.log(error.response?.data);
+    }
+  }
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <LoginBackground />
-      <LoginForm
-        onSuccess={handleSuccess}
-        onForgotPassword={handleForgotPassword}
-        onRegister={handleRegister}
+    <div>
+      <Input
+        type="email"
+        onChange={(e) => setEmail(e.target.value)}
+        name="email"
+        inputType="second"
       />
+
+      <Input
+        type="password"
+        onChange={(e) => setPassword(e.target.value)}
+        name="password"
+        inputType="second"
+      />
+
+      <button onClick={handelClick}>enter</button>
     </div>
   );
 }
+
+export default LoginPage;
