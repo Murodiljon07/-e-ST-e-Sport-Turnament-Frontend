@@ -235,7 +235,7 @@ function NavBar() {
                     onClick={() => {
                       setAuthTab("login");
                       setAuthModalOpen(true);
-                      router.push("/auth/loging");
+                      router.push("/auth/login");
                     }}
                     btnType="second"
                     className="px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm"

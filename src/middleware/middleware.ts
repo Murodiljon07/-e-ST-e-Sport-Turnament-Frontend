@@ -1,7 +1,7 @@
 // middleware.ts
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { decodeJWT } from "./lib/jwt";
+import { decodeJWT } from "../lib/jwt";
 
 export function middleware(request: NextRequest) {
   const token = request.cookies.get("token")?.value;
@@ -9,7 +9,9 @@ export function middleware(request: NextRequest) {
 
   // Public routes
   const publicRoutes = ["/auth/login", "/auth/register"];
-  const isPublicRoute = publicRoutes.some((route) => pathname.startsWith(route));
+  const isPublicRoute = publicRoutes.some((route) =>
+    pathname.startsWith(route),
+  );
 
   // Agar token bo'lmasa va public route bo'lmasa -> login ga
   if (!token && !isPublicRoute) {

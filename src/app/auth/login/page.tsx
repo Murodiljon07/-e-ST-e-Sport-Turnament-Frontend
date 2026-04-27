@@ -11,21 +11,21 @@ export default function LoginPage() {
   const handleSuccess = () => {
     console.log("Login successful!");
     // Redirect to dashboard or home page
-    router.push("/dashboard");
+    router.push("/admin/dashboard");
   };
 
   const handleForgotPassword = () => {
-    router.push("/forgot-password");
+    router.push("/auth/forgot-password");
   };
 
   const handleRegister = () => {
-    router.push("/register");
+    router.push("/auth/register");
   };
 
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <LoginBackground />
-      <LoginForm 
+      {/* <LoginBackground /> */}
+      <LoginForm
         onSuccess={handleSuccess}
         onForgotPassword={handleForgotPassword}
         onRegister={handleRegister}
