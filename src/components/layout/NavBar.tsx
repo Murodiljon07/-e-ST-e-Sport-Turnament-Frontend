@@ -11,10 +11,10 @@ interface NavLink {
 
 const navLinks: NavLink[] = [
   { label: "Bosh sahifa", href: "/" },
-  { label: "Turnirlar", href: "/tournaments" },
-  { label: "Jamoalar", href: "/teams" },
-  { label: "O'yinchilar", href: "/players" },
-  { label: "Yangiliklar", href: "/news" },
+  { label: "Turnirlar", href: "#tournaments" },
+  { label: "Jamoalar", href: "/#teams" },
+  { label: "O'yinchilar", href: "/#players" },
+  { label: "Yangiliklar", href: "/#news" },
 ];
 
 export default function Navbar() {

@@ -85,3 +85,52 @@ export interface TournamentsData {
   tournaments: Tournament[];
   ticker: { id: string; text: string }[];
 }
+
+export type TeamStatus = "active" | "recruiting" | "inactive";
+export type TeamGame = "CS2" | "DOTA2" | "VALORANT" | "LOL" | "PUBG";
+
+export interface TeamMember {
+  id: string;
+  nickname: string;
+  role: string; // "IGL", "AWP", "Support" ...
+  country: string; // "UZ", "KR", "SE" ...
+}
+
+export interface Team {
+  id: string;
+  code: string; // "TM-001"
+  name: string;
+  tag: string; // "PHM"
+  game: TeamGame;
+  status: TeamStatus;
+  region: string;
+  country: string; // "UZ"
+  rank: number; // global rank
+  points: number; // ranking points
+  winRate: number; // 0-100
+  wins: number;
+  losses: number;
+  members: TeamMember[];
+  captain: string; // nickname
+  founded: string; // "2023"
+}
+
+export interface TeamsData {
+  system: {
+    status: string;
+    version: string;
+    isLive: boolean;
+  };
+  eyebrow: {
+    left: string;
+    right: string;
+  };
+  heading: {
+    line1: string;
+    line2: string;
+  };
+  description: string;
+  filters: { id: string; label: string; count: number }[];
+  teams: Team[];
+  ticker: { id: string; text: string }[];
+}
