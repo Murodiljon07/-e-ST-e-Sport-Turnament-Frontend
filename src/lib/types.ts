@@ -134,3 +134,63 @@ export interface TeamsData {
   teams: Team[];
   ticker: { id: string; text: string }[];
 }
+
+export type PlayerStatus = "free-agent" | "signed" | "retired";
+export type PlayerRole =
+  | "IGL"
+  | "AWP"
+  | "Entry"
+  | "Support"
+  | "Lurk"
+  | "Duelist"
+  | "Controller"
+  | "Sentinel"
+  | "Initiator"
+  | "Flex"
+  | "Carry"
+  | "Mid"
+  | "Offlane"
+  | "Hard Support";
+
+export interface Player {
+  id: string;
+  code: string; // "PL-0001"
+  nickname: string;
+  realName: string;
+  country: string; // "UZ"
+  age: number;
+  role: PlayerRole;
+  game: TeamGame; // CS2, DOTA2, ...
+  status: PlayerStatus;
+  teamId: string | null;
+  teamName: string | null; // null = free agent
+  teamTag: string | null;
+  rank: number; // global rank
+  rating: number; // 0-100 (HLTV-like)
+  kd: number; // K/D ratio
+  winRate: number; // 0-100
+  matches: number;
+  earnings: string; // "$45K"
+  joinedAt: string; // "2023"
+  streak: number; // +N / -N (win/loss streak)
+}
+
+export interface PlayersData {
+  system: {
+    status: string;
+    version: string;
+    isLive: boolean;
+  };
+  eyebrow: {
+    left: string;
+    right: string;
+  };
+  heading: {
+    line1: string;
+    line2: string;
+  };
+  description: string;
+  filters: { id: string; label: string; count: number }[];
+  players: Player[];
+  ticker: { id: string; text: string }[];
+}
