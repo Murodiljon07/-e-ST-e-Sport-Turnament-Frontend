@@ -80,7 +80,10 @@ export default function TournamentsScreen({ data }: TournamentsScreenProps) {
   const tickerLoop = [...data.ticker, ...data.ticker];
 
   return (
-    <section className="relative w-full min-h-screen flex items-start justify-center px-6 py-16">
+    <section
+      id="tournaments"
+      className="relative w-full min-h-screen flex items-start justify-center px-6 py-16"
+    >
       {/* Ambient grid */}
       <div
         className="absolute inset-0 opacity-[0.04] pointer-events-none"

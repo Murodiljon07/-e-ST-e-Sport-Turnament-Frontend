@@ -1,4 +1,4 @@
-import React from "react";
+"use client";
 
 function page() {
   return <a href="/">page</a>;

@@ -92,7 +92,10 @@ export default function PlayersScreen({ data }: PlayersScreenProps) {
   const tickerLoop = [...data.ticker, ...data.ticker];
 
   return (
-    <section className="relative w-full min-h-screen flex items-start justify-center px-6 py-16">
+    <section
+      id="players"
+      className="relative w-full min-h-screen flex items-start justify-center px-6 py-16"
+    >
       {/* Ambient grid */}
       <div
         className="absolute inset-0 opacity-[0.04] pointer-events-none"

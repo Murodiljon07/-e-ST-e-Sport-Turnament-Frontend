@@ -43,7 +43,10 @@ export default function HeroScreen({ data }: HeroScreenProps) {
   const tickerLoop = [...data.ticker, ...data.ticker];
 
   return (
-    <section className="relative w-full min-h-screen flex items-center justify-center px-6 py-16">
+    <section
+      id="/"
+      className="relative w-full min-h-screen flex items-center justify-center px-6 py-16"
+    >
       {/* Ambient grid — nozik fon */}
       <div
         className="absolute inset-0 opacity-[0.04] pointer-events-none"

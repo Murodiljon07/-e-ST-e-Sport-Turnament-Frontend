@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Orbitron, Rajdhani } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/layout/NavBar";
+import logo from "../lib/Logo.svg";
 
 const orbitron = Orbitron({
   subsets: ["latin"],
@@ -16,6 +17,9 @@ const rajdhani = Rajdhani({
 });
 
 export const metadata: Metadata = {
+  icons: {
+    icon: logo.src,
+  },
   title: "CyberArena - E-Sport Platform",
   description: "Turnirlar, jamoalar va o'yinchilar uchun platforma",
 };
