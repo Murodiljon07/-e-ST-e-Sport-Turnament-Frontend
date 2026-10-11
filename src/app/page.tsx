@@ -1,7 +1,24 @@
-import React from "react";
+import HomeScreen from "@/components/ui/HomeScreen";
+import { homeData } from "@/lib/moc-data";
+import type { HomeData } from "@/lib/types";
 
-function page() {
-  return <div>page</div>;
+async function getHomeData(): Promise<HomeData> {
+  // Variant A: mock-data to'g'ridan-to'g'ri
+  return homeData;
+
+  // Variant B: API orqali
+  // const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? "http://localhost:3000";
+  // const res = await fetch(`${baseUrl}/api/home`, { cache: "no-store" });
+  // if (!res.ok) return homeData;
+  // return res.json();
 }
 
-export default page;
+export default async function HomePage() {
+  const data = await getHomeData();
+
+  return (
+    <main>
+      <HomeScreen data={data} />
+    </main>
+  );
+}
