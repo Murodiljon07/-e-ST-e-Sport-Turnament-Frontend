@@ -108,12 +108,12 @@ export default function Sidebar({
           >
             {/* Geometric mark — CyberArena uslubi */}
             <span className="relative grid place-items-center w-8 h-8">
-              <span className=" absolute inset-0  border-2 border-neutral-900 rounded-[6px] transition-transform duration-500  ease-in-out  group-hover:rotate-135" />
-              <span className="absolute inset-0  border-2 border-neutral-900 rounded-[6px] transition-transform duration-500  ease-out -rotate-45 group-hover:rotate-90" />
-              <span className="w-1.5 h-1.5 bg-neutral-900 rounded-[1px]" />
+              <span className="absolute inset-0 border-2 border-amber-700 rounded-[6px] logo-spin-cw" />
+              <span className="absolute inset-0 border-2 border-amber-600 rounded-[6px] logo-spin-ccw" />
+              <span className="w-1.5 h-1.5 bg-amber-500 rounded-[1px] logo-pulse-dot" />
             </span>
             <span className="font-mono text-[13px] font-semibold tracking-[0.18em] uppercase text-neutral-900">
-              CyberArena
+              Haldryx
             </span>
           </Link>
         </div>

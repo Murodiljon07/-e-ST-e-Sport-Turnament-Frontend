@@ -1,5 +1,5 @@
-import HomeScreen from "@/components/ui/HomeScreen";
-import { homeData } from "@/lib/moc-data";
+import HomeScreen from "@/components/screens/HomeScreen";
+import { homeData } from "@/lib/mock-data";
 import type { HomeData } from "@/lib/types";
 
 async function getHomeData(): Promise<HomeData> {
