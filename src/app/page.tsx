@@ -1,13 +1,7 @@
-"use client";
+import React from "react";
 
-import HeroScreen from "@/components/ui/HeroScreen";
-
-import { heroData } from "@/lib/mock-data";
-
-export default function Home() {
-  return (
-    <>
-      <HeroScreen data={heroData} />
-    </>
-  );
+function page() {
+  return <div>page</div>;
 }
+
+export default page;

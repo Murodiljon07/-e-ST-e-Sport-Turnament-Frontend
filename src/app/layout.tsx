@@ -1,27 +1,8 @@
-import type { Metadata } from "next";
-import { Orbitron, Rajdhani } from "next/font/google";
-import "./globals.css";
-import NavBar from "@/components/layout/NavBar";
-import logo from "../lib/Logo.svg";
-
-const orbitron = Orbitron({
-  subsets: ["latin"],
-  variable: "--font-orbitron",
-  weight: ["400", "700", "900"],
-});
-
-const rajdhani = Rajdhani({
-  subsets: ["latin"],
-  variable: "--font-rajdhani",
-  weight: ["400", "600", "700"],
-});
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  icons: {
-    icon: logo.src,
-  },
-  title: "CyberArena - E-Sport Platform",
-  description: "Turnirlar, jamoalar va o'yinchilar uchun platforma",
+  title: "E-Sport Tournament",
+  description: "E-Sport Tournament",
 };
 
 export default function RootLayout({
@@ -30,11 +11,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="uz" className={`${orbitron.variable} ${rajdhani.variable}`}>
-      <body className="font-rajdhani bg-dark-bg text-white min-h-screen antialiased">
-        <NavBar />
-        <main className="pt-20">{children}</main>
-      </body>
+    <html lang="uz">
+      <body>{children}</body>
     </html>
   );
 }
