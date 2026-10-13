@@ -158,3 +158,234 @@ export interface CompetitionsData {
   featured: Competition;
   ticker: { id: string; text: string }[];
 }
+
+export type AuthTab = "login" | "register";
+
+export interface LoginForm {
+  email: string;
+  password: string;
+  remember: boolean;
+}
+
+export interface RegisterForm {
+  email: string;
+  password: string;
+  confirmPassword: string;
+  nickname: string;
+  game: string; // game id (cs2, dota2, ...)
+  gameId: string; // in-game ID / Steam ID / Riot ID
+  terms: boolean;
+}
+
+export interface AuthGame {
+  id: string;
+  name: string;
+  shortName: string;
+  icon: string;
+}
+
+export type GameId =
+  | "cs2"
+  | "dota2"
+  | "valorant"
+  | "lol"
+  | "pubg"
+  | "apex"
+  | "r6"
+  | "overwatch";
+export type RankTier =
+  | "Bronze"
+  | "Silver"
+  | "Gold"
+  | "Platinum"
+  | "Diamond"
+  | "Master"
+  | "Grandmaster"
+  | "Elite";
+export type MatchStatus = "live" | "upcoming" | "won" | "lost";
+
+export interface PlayerProfile {
+  id: string;
+  nickname: string;
+  realName: string;
+  country: string;
+  age: number;
+  avatarInitials: string;
+  joinedAt: string; // "2021"
+  bio: string;
+}
+
+export interface PlayerTeam {
+  id: string;
+  name: string;
+  tag: string;
+  role: string; // "IGL", "AWP"
+  joinedAt: string; // "2023"
+  isCaptain: boolean;
+}
+
+export interface PlayerGameStat {
+  gameId: GameId;
+  gameName: string;
+  gameShort: string;
+  gameIcon: string;
+  rank: RankTier;
+  rankPoints: number;
+  level: number;
+  matches: number;
+  wins: number;
+  losses: number;
+  winRate: number;
+  kd: number;
+  hoursPlayed: number;
+  isPrimary: boolean;
+  since: string; // "2021"
+}
+
+export interface PlayerLiveMatch {
+  id: string;
+  tournament: string;
+  tournamentCode: string;
+  game: GameId;
+  gameShort: string;
+  teamA: { name: string; tag: string; score: number };
+  teamB: { name: string; tag: string; score: number };
+  map: string;
+  round: string;
+  status: MatchStatus;
+  viewers: string;
+  startedAt: string; // "21:00"
+}
+
+export interface PlayerAchievement {
+  id: string;
+  title: string;
+  tournament: string;
+  placement: string; // "1st", "2nd"
+  date: string;
+  prize: string;
+}
+
+export interface PlayerActivityItem {
+  id: string;
+  type: "match" | "tournament" | "achievement";
+  title: string;
+  description: string;
+  time: string;
+}
+
+export interface PlayerOverview {
+  totalEarnings: string;
+  totalMatches: number;
+  totalWins: number;
+  totalLosses: number;
+  winRate: number;
+  globalRank: number;
+  totalHours: number;
+  tournamentsPlayed: number;
+}
+
+export interface PlayData {
+  system: {
+    status: string;
+    version: string;
+    isLive: boolean;
+  };
+  profile: PlayerProfile;
+  team: PlayerTeam;
+  overview: PlayerOverview;
+  games: PlayerGameStat[];
+  liveMatch: PlayerLiveMatch | null;
+  upcomingMatches: PlayerLiveMatch[];
+  achievements: PlayerAchievement[];
+  activity: PlayerActivityItem[];
+  ticker: { id: string; text: string }[];
+}
+
+export type EventStatus = "live" | "upcoming" | "ended";
+export type EventType =
+  | "meetup"
+  | "autograph"
+  | "contest"
+  | "show"
+  | "workshop"
+  | "tournament";
+export type ActivityType = "quiz" | "prediction" | "vote" | "raffle";
+
+export interface FanFestHero {
+  eyebrow: { left: string; right: string };
+  title: { line1: string; line2: string };
+  description: string;
+  dateLabel: string;
+  location: string;
+  attendees: string;
+}
+
+export interface FanFestStat {
+  id: string;
+  label: string;
+  value: string;
+}
+
+export interface FanFestEvent {
+  id: string;
+  code: string;
+  title: string;
+  description: string;
+  type: EventType;
+  status: EventStatus;
+  host: string;
+  hostRole: string;
+  time: string;
+  duration: string;
+  venue: string;
+  capacity: number;
+  registered: number;
+  featured: boolean;
+}
+
+export interface FanFestActivity {
+  id: string;
+  title: string;
+  description: string;
+  type: ActivityType;
+  reward: string;
+  participants: string;
+  endsAt: string;
+  status: EventStatus;
+}
+
+export interface FanFestGuest {
+  id: string;
+  nickname: string;
+  realName: string;
+  role: string;
+  team: string;
+  country: string;
+  initials: string;
+  appearance: string;
+}
+
+export interface FanFestScheduleItem {
+  id: string;
+  time: string;
+  title: string;
+  stage: string;
+  status: EventStatus;
+}
+
+export interface FanFestData {
+  system: {
+    status: string;
+    version: string;
+    isLive: boolean;
+  };
+  hero: FanFestHero;
+  stats: FanFestStat[];
+  filters: { id: string; label: string; count: number }[];
+  events: FanFestEvent[];
+  activities: FanFestActivity[];
+  guests: FanFestGuest[];
+  schedule: FanFestScheduleItem[];
+  ticker: { id: string; text: string }[];
+}

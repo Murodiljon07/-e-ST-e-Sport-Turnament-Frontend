@@ -2,9 +2,9 @@ import AboutPage from "@/components/layout/AboutPage";
 import { aboutData } from "@/lib/mock-data";
 
 export const metadata = {
-  title: "Biz haqimizda — CyberArena",
+  title: "Biz haqimizda — HALDRYX",
   description:
-    "CyberArena — O'zbekistondagi birinchi va eng yirik e-sport platformasi.",
+    "HALDRYX — O'zbekistondagi birinchi va eng yirik e-sport platformasi.",
 };
 
 export default function About() {

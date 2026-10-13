@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import {
   Home,
   Trophy,
@@ -75,6 +75,7 @@ export default function Sidebar({
   const pathname = usePathname();
   const [active, setActive] = useState(defaultActive);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const router = useRouter();
 
   // Route o'zgarganda active'ni yangilash
   useEffect(() => {
@@ -106,7 +107,7 @@ export default function Sidebar({
             href="/"
             className="group flex items-center gap-2.5 select-none"
           >
-            {/* Geometric mark — CyberArena uslubi */}
+            {/* Geometric mark — HALDRYX uslubi */}
             <span className="relative grid place-items-center w-8 h-8">
               <span className="absolute inset-0 border-2 border-amber-700 rounded-[6px] logo-spin-cw" />
               <span className="absolute inset-0 border-2 border-amber-600 rounded-[6px] logo-spin-ccw" />
@@ -197,7 +198,7 @@ export default function Sidebar({
           {/* Login — accent tugma */}
           <button
             type="button"
-            onClick={onLoginClick}
+            onClick={() => router.push("/login")}
             className="group flex items-center gap-3 h-11 px-3 rounded-lg bg-neutral-900 text-white hover:bg-neutral-800 transition-all duration-300 ease-out"
           >
             <CircleUser size={20} strokeWidth={2} className="shrink-0" />
@@ -387,7 +388,7 @@ export default function Sidebar({
             <button
               type="button"
               onClick={() => {
-                onLoginClick?.();
+                router.push("/login");
                 setIsMenuOpen(false);
               }}
               className="flex items-center justify-center gap-2 h-11 px-3 rounded-lg bg-neutral-900 text-white hover:bg-neutral-800 transition-colors"

@@ -16,7 +16,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "CyberArena — E-Sport",
+  title: "HALDRYX — E-Sport",
   description: "Turnirlar, jamoalar va o'yinchilar uchun platforma",
 };
 

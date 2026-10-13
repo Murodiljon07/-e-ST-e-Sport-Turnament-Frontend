@@ -2,7 +2,7 @@ import CompetitionsPage from "@/components/layout/CompetitionsPage";
 import { competitionsData } from "@/lib/mock-data";
 
 export const metadata = {
-  title: "Musobaqalar — CyberArena",
+  title: "Musobaqalar — HALDRYX",
   description: "Turnirlar, ligalar va kuboklar — barchasi bir joyda.",
 };
 
