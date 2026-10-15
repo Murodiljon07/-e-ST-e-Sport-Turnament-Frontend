@@ -107,7 +107,7 @@ export default function Sidebar({
             href="/"
             className="group flex items-center gap-2.5 select-none"
           >
-            {/* Geometric mark — HALDRYX uslubi */}
+            {/* Geometric mark — HALDRYX   uslubi */}
             <span className="relative grid place-items-center w-8 h-8">
               <span className="absolute inset-0 border-2 border-amber-700 rounded-[6px] logo-spin-cw" />
               <span className="absolute inset-0 border-2 border-amber-600 rounded-[6px] logo-spin-ccw" />

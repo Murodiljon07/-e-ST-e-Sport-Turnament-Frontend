@@ -389,3 +389,95 @@ export interface FanFestData {
   schedule: FanFestScheduleItem[];
   ticker: { id: string; text: string }[];
 }
+
+export type CreatorTier = "Bronze" | "Silver" | "Gold" | "Platinum" | "Diamond";
+export type Platform =
+  | "twitch"
+  | "youtube"
+  | "tiktok"
+  | "instagram"
+  | "kick"
+  | "twitter";
+export type RequirementStatus = "met" | "partial" | "unmet";
+
+export interface CreatorHero {
+  eyebrow: { left: string; right: string };
+  title: { line1: string; line2: string };
+  description: string;
+  ctaPrimary: { label: string; href: string };
+  ctaSecondary: { label: string; href: string };
+}
+
+export interface CreatorStat {
+  id: string;
+  label: string;
+  value: string;
+}
+
+export interface CreatorBenefit {
+  id: string;
+  icon: string;
+  title: string;
+  description: string;
+}
+
+export interface CreatorTierInfo {
+  id: string;
+  name: CreatorTier;
+  color: string;
+  followers: string;
+  revenueShare: string;
+  perks: string[];
+  isFeatured: boolean;
+}
+
+export interface CreatorRequirement {
+  id: string;
+  label: string;
+  description: string;
+  status: RequirementStatus;
+  current: string;
+  target: string;
+}
+
+export interface CreatorStep {
+  id: string;
+  number: string;
+  title: string;
+  description: string;
+}
+
+export interface TopCreator {
+  id: string;
+  nickname: string;
+  realName: string;
+  initials: string;
+  platform: Platform;
+  followers: string;
+  tier: CreatorTier;
+  country: string;
+  earnings: string;
+}
+
+export interface CreatorFaq {
+  id: string;
+  question: string;
+  answer: string;
+}
+
+export interface CreatorProgramData {
+  system: {
+    status: string;
+    version: string;
+    isLive: boolean;
+  };
+  hero: CreatorHero;
+  stats: CreatorStat[];
+  benefits: CreatorBenefit[];
+  tiers: CreatorTierInfo[];
+  requirements: CreatorRequirement[];
+  steps: CreatorStep[];
+  topCreators: TopCreator[];
+  faqs: CreatorFaq[];
+  ticker: { id: string; text: string }[];
+}
